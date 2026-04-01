@@ -1,0 +1,52 @@
+# Python Essentials
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+env/
+venv/
+ENV/
+.mypy_cache/
+.ruff_cache/
+
+# Distribution / Build
+dist/
+build/
+*.egg-info/
+pip-wheel-metadata/
+
+# Tests / Coverage
+.pytest_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Logs
+*.log
+*.pid
+
+# Local data (SSOT)
+data/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.db
+*.db-shm
+*.db-wal
+
+# OS Specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / Workspace
+.idea/
+.vscode/
+.history/
+tmp/
+.tmp/
+.playwright-mcp/
+output/
