@@ -1,0 +1,6 @@
+# WHY: Protect automation boundaries. Workflow and dependency-automation changes
+# should always receive owner review before merge.
+
+* @VIKAS9793
+/.github/workflows/ @VIKAS9793
+/.github/dependabot.yml @VIKAS9793
