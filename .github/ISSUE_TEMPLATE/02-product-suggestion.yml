@@ -1,0 +1,85 @@
+name: Product suggestion
+description: Propose a product, workflow, or developer-experience improvement.
+title: "[Suggestion] "
+labels:
+  - enhancement
+  - product
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for improvements, not defects.
+
+        Strong suggestions are grounded in a user job, a current gap, and a measurable improvement.
+  - type: dropdown
+    id: suggestion_type
+    attributes:
+      label: Suggestion type
+      description: Select the kind of improvement you are proposing.
+      options:
+        - Product workflow
+        - User experience and interface
+        - API capability
+        - CLI capability
+        - Observability and debugging
+        - Policy and approvals
+        - Tooling and integrations
+        - Documentation
+        - Architecture and maintainability
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the current gap or friction in plain terms.
+      placeholder: Operators can see current run state, but they cannot compare state transitions across retries without manually reconstructing the sequence.
+    validations:
+      required: true
+  - type: textarea
+    id: user_job
+    attributes:
+      label: User job or operational need
+      description: Explain what the user is actually trying to accomplish.
+      placeholder: An operator needs to understand whether a retry improved the workflow outcome before approving continuation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the change directly and concretely.
+      placeholder: Add a side-by-side run-state comparison view in the inspector for the latest retry sequence.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected outcome
+      description: Describe what gets better if this is built.
+      placeholder: Operators can make approval decisions faster and with higher confidence because retries become easier to evaluate.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: List rejected or weaker alternatives if you have them.
+      placeholder: We could rely on audit event inspection alone, but that keeps comparison too manual for complex workflows.
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope notes
+      description: Call out dependencies, risks, or boundaries that matter.
+      placeholder: This likely touches the inspector UI, run detail API shape, and audit rendering.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Reporter checklist
+      options:
+        - label: I explained the user or operator need, not just the feature idea.
+          required: true
+        - label: I checked existing issues and discussions first.
+          required: true

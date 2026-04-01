@@ -1,0 +1,116 @@
+name: Bug report
+description: Report a reproducible defect in the product, API, CLI, or workflow runtime.
+title: "[Bug] "
+labels:
+  - bug
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for defects that can be reproduced or verified.
+
+        Good reports are specific about impact, affected surface, and evidence.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      description: Select the primary product surface where the defect appears.
+      options:
+        - Product UI
+        - API
+        - CLI
+        - Storage and persistence
+        - Live events and SSE
+        - Authentication and sessions
+        - Orchestration and workflow lifecycle
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Choose the level that best matches the real operational impact.
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: State the defect in one or two precise sentences.
+      placeholder: Creating a run succeeds, but the inspector never updates and the queue remains stale until a full page reload.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: User and system impact
+      description: Explain what is broken for the user and what it means operationally.
+      placeholder: Operators cannot trust live state after creating a run, which weakens the core promise of visible workflow control.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the shortest reliable path to reproduce the issue.
+      placeholder: |
+        1. Start the app
+        2. Create an admin operator
+        3. Start a session
+        4. Create a bounded run
+        5. Observe the queue and inspector
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe the correct behavior.
+      placeholder: The run should appear in the queue immediately and the inspector should reflect the latest persisted state.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Describe what actually happened.
+      placeholder: The run is persisted, but the UI remains stale until a manual refresh.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include only the details that matter for reproduction.
+      placeholder: |
+        OS:
+        Browser:
+        Python:
+        Launch command:
+        Commit SHA:
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, screenshots, or trace evidence
+      description: Paste relevant evidence. Logs can be pasted directly.
+      render: shell
+      placeholder: Paste server logs, console errors, or trace snippets here.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Reporter checklist
+      options:
+        - label: I confirmed this is reproducible on the current main branch or latest local workspace state.
+          required: true
+        - label: I searched existing issues to avoid filing a duplicate.
+          required: true
